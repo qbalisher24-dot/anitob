@@ -8,74 +8,178 @@
 
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial,sans-serif;
+    font-family:'Inter',sans-serif;
 }
 
 body{
-    background:linear-gradient(135deg,#000,#111,#000);
+    background:#0a0a0f;
     color:#fff;
     min-height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
     padding:20px;
+    overflow:hidden;
+}
+
+.bg-animation{
+    position:fixed;
+    top:0;left:0;
+    width:100%;height:100%;
+    z-index:0;
+    overflow:hidden;
+}
+
+.bg-animation span{
+    position:absolute;
+    display:block;
+    width:20px;height:20px;
+    background:rgba(255,255,255,0.03);
+    animation:float 25s linear infinite;
+    border-radius:50%;
+}
+
+.bg-animation span:nth-child(1){left:25%;width:80px;height:80px;animation-delay:0s;animation-duration:20s;}
+.bg-animation span:nth-child(2){left:10%;width:20px;height:20px;animation-delay:2s;animation-duration:25s;}
+.bg-animation span:nth-child(3){left:70%;width:20px;height:20px;animation-delay:4s;}
+.bg-animation span:nth-child(4){left:40%;width:60px;height:60px;animation-delay:0s;animation-duration:18s;}
+.bg-animation span:nth-child(5){left:65%;width:20px;height:20px;animation-delay:0s;}
+.bg-animation span:nth-child(6){left:75%;width:110px;height:110px;animation-delay:3s;}
+.bg-animation span:nth-child(7){left:35%;width:150px;height:150px;animation-delay:7s;}
+.bg-animation span:nth-child(8){left:50%;width:25px;height:25px;animation-delay:15s;animation-duration:45s;}
+.bg-animation span:nth-child(9){left:20%;width:15px;height:15px;animation-delay:2s;animation-duration:35s;}
+.bg-animation span:nth-child(10){left:85%;width:50px;height:50px;animation-delay:0s;animation-duration:11s;}
+
+@keyframes float{
+    0%{transform:translateY(100vh) rotate(0deg);opacity:1;}
+    100%{transform:translateY(-100vh) rotate(720deg);opacity:0;}
 }
 
 .container{
+    position:relative;
+    z-index:1;
     width:90%;
-    max-width:450px;
+    max-width:420px;
     text-align:center;
-    backdrop-filter:blur(10px);
+    backdrop-filter:blur(20px);
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:30px;
+    padding:40px 30px;
+    box-shadow:0 25px 60px rgba(0,0,0,0.5);
+}
+
+.logo-wrapper{
+    position:relative;
+    display:inline-block;
+    margin-bottom:20px;
 }
 
 .logo{
     width:130px;
     height:130px;
     border-radius:50%;
-    border:3px solid #fff;
-    margin:20px auto;
-    box-shadow:0 0 30px #fff;
-    background:url("/photo_2026-04-09_19-56-49.jpg") center/cover;
+    border:3px solid transparent;
+    background:
+        linear-gradient(#0a0a0f,#0a0a0f) padding-box,
+        linear-gradient(135deg,#00d2ff,#7b2ff7,#ff0080) border-box;
+    margin:0 auto;
+    box-shadow:
+        0 0 40px rgba(123,47,247,0.4),
+        0 0 80px rgba(0,210,255,0.2);
+    background-image:url("/photo_2026-04-09_19-56-49.jpg");
+    background-size:cover;
+    background-position:center;
+    background-clip:padding-box;
+    animation:pulse-glow 3s ease-in-out infinite;
+}
+
+@keyframes pulse-glow{
+    0%,100%{box-shadow:0 0 40px rgba(123,47,247,0.4),0 0 80px rgba(0,210,255,0.2);}
+    50%{box-shadow:0 0 60px rgba(123,47,247,0.6),0 0 120px rgba(0,210,255,0.3);}
 }
 
 h1{
-    margin:15px 0;
+    font-size:28px;
+    font-weight:800;
+    margin:15px 0 8px;
+    background:linear-gradient(135deg,#fff,#a0a0a0);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    letter-spacing:1px;
 }
 
-p{
-    color:#ccc;
-    margin-bottom:20px;
+.subtitle{
+    color:#666;
+    font-size:14px;
+    font-weight:300;
+    margin-bottom:30px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+
+.divider{
+    width:60px;
+    height:3px;
+    background:linear-gradient(90deg,#00d2ff,#7b2ff7,#ff0080);
+    border-radius:10px;
+    margin:0 auto 30px;
 }
 
 .btn{
     display:flex;
     align-items:center;
-    gap:15px;
+    gap:16px;
     text-decoration:none;
     color:#fff;
-    background:#111;
-    padding:18px;
-    margin:20px 0;
-    border-radius:20px;
-    font-size:22px;
-    transition:.3s;
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.08);
+    padding:18px 22px;
+    margin:12px 0;
+    border-radius:18px;
+    font-size:20px;
+    font-weight:500;
+    transition:all 0.4s cubic-bezier(0.175,0.885,0.32,1.275);
     text-align:left;
+    position:relative;
+    overflow:hidden;
+}
+
+.btn::before{
+    content:'';
+    position:absolute;
+    top:0;left:-100%;
+    width:100%;height:100%;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,0.08),transparent);
+    transition:0.5s;
+}
+
+.btn:hover::before{
+    left:100%;
 }
 
 .btn:hover{
-    transform:scale(1.03);
+    transform:translateY(-4px) scale(1.02);
+    border-color:rgba(255,255,255,0.2);
 }
 
 .btn i{
-    font-size:38px;
-    width:45px;
-    text-align:center;
+    font-size:36px;
+    width:50px;
+    height:50px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:14px;
+    transition:all 0.4s;
+    flex-shrink:0;
 }
 
 .btn-content{
@@ -83,196 +187,179 @@ p{
     flex-direction:column;
 }
 
+.btn-content span:first-child{
+    font-weight:600;
+}
+
 .counter{
-    margin-top:4px;
-    font-size:14px;
-    color:#aaa;
+    margin-top:3px;
+    font-size:12px;
+    color:#666;
+    font-weight:400;
 }
 
-.telegram{
-    box-shadow:0 0 25px #00aeff;
+.telegram i{
+    background:rgba(0,172,255,0.15);
+    color:#00acff;
+}
+.telegram:hover{
+    background:rgba(0,172,255,0.1);
+    box-shadow:0 10px 40px rgba(0,172,255,0.2);
+}
+.telegram:hover i{
+    background:rgba(0,172,255,0.3);
+    box-shadow:0 0 20px rgba(0,172,255,0.4);
 }
 
-.instagram{
-    box-shadow:0 0 25px #ff0080;
+.instagram i{
+    background:rgba(255,0,128,0.15);
+    color:#ff0080;
+}
+.instagram:hover{
+    background:rgba(255,0,128,0.1);
+    box-shadow:0 10px 40px rgba(255,0,128,0.2);
+}
+.instagram:hover i{
+    background:rgba(255,0,128,0.3);
+    box-shadow:0 0 20px rgba(255,0,128,0.4);
 }
 
-.youtube{
-    box-shadow:0 0 25px #ff0000;
+.youtube i{
+    background:rgba(255,0,0,0.15);
+    color:#ff0000;
+}
+.youtube:hover{
+    background:rgba(255,0,0,0.1);
+    box-shadow:0 10px 40px rgba(255,0,0,0.2);
+}
+.youtube:hover i{
+    background:rgba(255,0,0,0.3);
+    box-shadow:0 0 20px rgba(255,0,0,0.4);
 }
 
-.tiktok{
-    box-shadow:0 0 25px #00ffff;
+.tiktok i{
+    background:rgba(0,255,255,0.15);
+    color:#00ffff;
+}
+.tiktok:hover{
+    background:rgba(0,255,255,0.1);
+    box-shadow:0 10px 40px rgba(0,255,255,0.2);
+}
+.tiktok:hover i{
+    background:rgba(0,255,255,0.3);
+    box-shadow:0 0 20px rgba(0,255,255,0.4);
 }
 
-/* Tablet */
+.footer{
+    margin-top:30px;
+    padding-top:20px;
+    border-top:1px solid rgba(255,255,255,0.06);
+    color:#444;
+    font-size:12px;
+    letter-spacing:1px;
+}
+
 @media (max-width:768px){
-
-    .container{
-        width:95%;
-    }
-
-    .logo{
-        width:120px;
-        height:120px;
-    }
-
-    h1{
-        font-size:28px;
-    }
-
-    .btn{
-        padding:16px;
-        font-size:20px;
-    }
-
-    .btn i{
-        font-size:34px;
-    }
+    .container{width:95%;padding:35px 25px;}
+    .logo{width:120px;height:120px;}
+    h1{font-size:26px;}
+    .btn{padding:16px 20px;font-size:18px;}
+    .btn i{font-size:32px;width:45px;height:45px;}
 }
 
-/* Telefon */
 @media (max-width:480px){
-
-    body{
-        padding:15px;
-        align-items:flex-start;
-    }
-
-    .container{
-        width:100%;
-        max-width:100%;
-        margin-top:20px;
-    }
-
-    .logo{
-        width:100px;
-        height:100px;
-    }
-
-    h1{
-        font-size:24px;
-        word-break:break-word;
-    }
-
-    p{
-        font-size:14px;
-    }
-
-    .btn{
-        padding:14px;
-        border-radius:16px;
-        font-size:18px;
-        gap:12px;
-    }
-
-    .btn i{
-        font-size:30px;
-        width:35px;
-    }
-
-    .counter{
-        font-size:12px;
-    }
+    body{padding:15px;align-items:flex-start;}
+    .container{width:100%;max-width:100%;margin-top:20px;padding:30px 20px;border-radius:24px;}
+    .logo{width:100px;height:100px;}
+    h1{font-size:22px;word-break:break-word;}
+    .subtitle{font-size:11px;letter-spacing:1.5px;}
+    .btn{padding:14px 16px;border-radius:14px;font-size:16px;gap:12px;margin:10px 0;}
+    .btn i{font-size:28px;width:40px;height:40px;border-radius:12px;}
+    .counter{font-size:11px;}
 }
 
-/* Juda kichik ekranlar */
 @media (max-width:320px){
-
-    .logo{
-        width:85px;
-        height:85px;
-    }
-
-    h1{
-        font-size:20px;
-    }
-
-    .btn{
-        font-size:16px;
-        padding:12px;
-    }
-
-    .btn i{
-        font-size:26px;
-    }
+    .logo{width:85px;height:85px;}
+    h1{font-size:19px;}
+    .btn{font-size:14px;padding:12px 14px;}
+    .btn i{font-size:24px;width:36px;height:36px;}
 }
 </style>
 </head>
 
 <body>
 
+<div class="bg-animation">
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+</div>
+
 <div class="container">
 
-    <div class="logo"></div>
+    <div class="logo-wrapper">
+        <div class="logo"></div>
+    </div>
 
     <h1>ANITOOBuzRASMIY</h1>
-    <p>Bizni boshqa ijtimoiy tarmoqlarda ham kuzating!</p>
+    <p class="subtitle">Ijtimoiy tarmoqlar</p>
+    <div class="divider"></div>
 
     <a class="btn telegram"
        href="https://l.instagram.com/?u=https%3A%2F%2Ft.me%2FANITOOBuz_bot%3Futm_source%3Dig%26utm_medium%3Dsocial%26utm_content%3Dlink_in_bio%26fbclid%3DPAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPOTM2NjE5NzQzMzkyNDU5AAGnXy9S3OB8k5xRMtXvm6k0Gxc8T9wa29y5V8U36uaIUVutF59YC7GavrQUXsk_aem_D3YmvnDBsVjEjE7b-FvDOQ&e=AUDO1SwrvIdTw7EWi5ZVSxfMN1qTcaHsb5fK6drkChD1G4-BOzZ1h3jis6ZxIQWhQpnu1TA4gDsXuZ3o6JD9ckDUGWDCT-BFAteyJjT-a6izDbk6WTayWdkbxBRM-e2dF5KbnA8"
        onclick="countClick('telegram')">
-
        <i class="fab fa-telegram"></i>
-
        <div class="btn-content">
            <span>Telegram Bot</span>
            <span class="counter" id="telegramCount"></span>
        </div>
-
     </a>
 
     <a class="btn instagram"
        href="https://www.instagram.com/anitoobuzrasmiy?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
        onclick="countClick('instagram')">
-
        <i class="fab fa-instagram"></i>
-
        <div class="btn-content">
            <span>Instagram</span>
            <span class="counter" id="instagramCount"></span>
        </div>
-
     </a>
 
     <a class="btn youtube"
        href="https://youtube.com/@birinchiuzfandub?si=nc7M2fyV-UPQXv_f"
        onclick="countClick('youtube')">
-
        <i class="fab fa-youtube"></i>
-
        <div class="btn-content">
            <span>YouTube</span>
            <span class="counter" id="youtubeCount"></span>
        </div>
-
     </a>
 
     <a class="btn tiktok"
        href="https://www.tiktok.com/@ashiro_tt"
        onclick="countClick('tiktok')">
-
        <i class="fab fa-tiktok"></i>
-
        <div class="btn-content">
            <span>TikTok</span>
            <span class="counter" id="tiktokCount"></span>
        </div>
-
     </a>
+
     <a class="btn telegram"
-    href="https://t.me/ashiro_life"
-    onclick="countClick('telegram')">
+       href="https://t.me/ashiro_life"
+       onclick="countClick('telegram')">
+       <i class="fab fa-telegram"></i>
+       <div class="btn-content">
+           <span>Admin Life Kanal</span>
+           <span class="counter" id="telegramCount2"></span>
+       </div>
+    </a>
 
-    <i class="fab fa-telegram"></i>
-
-    <div class="btn-content">
-        <span>Admin life kanal😶‍🌫️</span>
-        <span class="counter" id="telegramCount"></span>
+    <div class="footer">
+        ANITOOBuz &copy; 2025
     </div>
 
- </a>
 </div>
+
 <script>
 const API_URL = "https://script.google.com/macros/s/AKfycbw-MaWJRecQZAy0O-K_s_X9NXjCqeCQ135V7ANRQkzPptvuS2nYzJuYMiPiU-Ekfztf/exec";
 
@@ -292,6 +379,9 @@ async function loadCounts() {
 
         document.getElementById("tiktokCount").textContent =
             `${data.tiktok || 0} marta ko'rilgan`;
+
+        document.getElementById("telegramCount2").textContent =
+            `${data.telegram || 0} marta ko'rilgan`;
 
     } catch (e) {
         console.log("Xato:", e);
@@ -319,4 +409,3 @@ loadCounts();
 
 </body>
 </html>
-
