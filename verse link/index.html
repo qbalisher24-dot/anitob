@@ -1,0 +1,322 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANITOOBuzRASMIY</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#000,#111,#000);
+    color:#fff;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.container{
+    width:90%;
+    max-width:450px;
+    text-align:center;
+    backdrop-filter:blur(10px);
+}
+
+.logo{
+    width:130px;
+    height:130px;
+    border-radius:50%;
+    border:3px solid #fff;
+    margin:20px auto;
+    box-shadow:0 0 30px #fff;
+    background:url("/photo_2026-04-09_19-56-49.jpg") center/cover;
+}
+
+h1{
+    margin:15px 0;
+}
+
+p{
+    color:#ccc;
+    margin-bottom:20px;
+}
+
+.btn{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    text-decoration:none;
+    color:#fff;
+    background:#111;
+    padding:18px;
+    margin:20px 0;
+    border-radius:20px;
+    font-size:22px;
+    transition:.3s;
+    text-align:left;
+}
+
+.btn:hover{
+    transform:scale(1.03);
+}
+
+.btn i{
+    font-size:38px;
+    width:45px;
+    text-align:center;
+}
+
+.btn-content{
+    display:flex;
+    flex-direction:column;
+}
+
+.counter{
+    margin-top:4px;
+    font-size:14px;
+    color:#aaa;
+}
+
+.telegram{
+    box-shadow:0 0 25px #00aeff;
+}
+
+.instagram{
+    box-shadow:0 0 25px #ff0080;
+}
+
+.youtube{
+    box-shadow:0 0 25px #ff0000;
+}
+
+.tiktok{
+    box-shadow:0 0 25px #00ffff;
+}
+
+/* Tablet */
+@media (max-width:768px){
+
+    .container{
+        width:95%;
+    }
+
+    .logo{
+        width:120px;
+        height:120px;
+    }
+
+    h1{
+        font-size:28px;
+    }
+
+    .btn{
+        padding:16px;
+        font-size:20px;
+    }
+
+    .btn i{
+        font-size:34px;
+    }
+}
+
+/* Telefon */
+@media (max-width:480px){
+
+    body{
+        padding:15px;
+        align-items:flex-start;
+    }
+
+    .container{
+        width:100%;
+        max-width:100%;
+        margin-top:20px;
+    }
+
+    .logo{
+        width:100px;
+        height:100px;
+    }
+
+    h1{
+        font-size:24px;
+        word-break:break-word;
+    }
+
+    p{
+        font-size:14px;
+    }
+
+    .btn{
+        padding:14px;
+        border-radius:16px;
+        font-size:18px;
+        gap:12px;
+    }
+
+    .btn i{
+        font-size:30px;
+        width:35px;
+    }
+
+    .counter{
+        font-size:12px;
+    }
+}
+
+/* Juda kichik ekranlar */
+@media (max-width:320px){
+
+    .logo{
+        width:85px;
+        height:85px;
+    }
+
+    h1{
+        font-size:20px;
+    }
+
+    .btn{
+        font-size:16px;
+        padding:12px;
+    }
+
+    .btn i{
+        font-size:26px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="logo"></div>
+
+    <h1>ANITOOBuzRASMIY</h1>
+    <p>Bizni boshqa ijtimoiy tarmoqlarda ham kuzating!</p>
+
+    <a class="btn telegram"
+       href="https://l.instagram.com/?u=https%3A%2F%2Ft.me%2FANITOOBuz_bot%3Futm_source%3Dig%26utm_medium%3Dsocial%26utm_content%3Dlink_in_bio%26fbclid%3DPAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPOTM2NjE5NzQzMzkyNDU5AAGnXy9S3OB8k5xRMtXvm6k0Gxc8T9wa29y5V8U36uaIUVutF59YC7GavrQUXsk_aem_D3YmvnDBsVjEjE7b-FvDOQ&e=AUDO1SwrvIdTw7EWi5ZVSxfMN1qTcaHsb5fK6drkChD1G4-BOzZ1h3jis6ZxIQWhQpnu1TA4gDsXuZ3o6JD9ckDUGWDCT-BFAteyJjT-a6izDbk6WTayWdkbxBRM-e2dF5KbnA8"
+       onclick="countClick('telegram')">
+
+       <i class="fab fa-telegram"></i>
+
+       <div class="btn-content">
+           <span>Telegram Bot</span>
+           <span class="counter" id="telegramCount"></span>
+       </div>
+
+    </a>
+
+    <a class="btn instagram"
+       href="https://www.instagram.com/anitoobuzrasmiy?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+       onclick="countClick('instagram')">
+
+       <i class="fab fa-instagram"></i>
+
+       <div class="btn-content">
+           <span>Instagram</span>
+           <span class="counter" id="instagramCount"></span>
+       </div>
+
+    </a>
+
+    <a class="btn youtube"
+       href="https://youtube.com/@birinchiuzfandub?si=nc7M2fyV-UPQXv_f"
+       onclick="countClick('youtube')">
+
+       <i class="fab fa-youtube"></i>
+
+       <div class="btn-content">
+           <span>YouTube</span>
+           <span class="counter" id="youtubeCount"></span>
+       </div>
+
+    </a>
+
+    <a class="btn tiktok"
+       href="https://www.tiktok.com/@ashiro_tt"
+       onclick="countClick('tiktok')">
+
+       <i class="fab fa-tiktok"></i>
+
+       <div class="btn-content">
+           <span>TikTok</span>
+           <span class="counter" id="tiktokCount"></span>
+       </div>
+
+    </a>
+    <a class="btn telegram"
+    href="https://t.me/ashiro_life"
+    onclick="countClick('telegram')">
+
+    <i class="fab fa-telegram"></i>
+
+    <div class="btn-content">
+        <span>Admin life kanal😶‍🌫️</span>
+        <span class="counter" id="telegramCount"></span>
+    </div>
+
+ </a>
+</div>
+<script>
+const API_URL = "https://script.google.com/macros/s/AKfycbw-MaWJRecQZAy0O-K_s_X9NXjCqeCQ135V7ANRQkzPptvuS2nYzJuYMiPiU-Ekfztf/exec";
+
+async function loadCounts() {
+    try {
+        const response = await fetch(API_URL);
+        const data = await response.json();
+
+        document.getElementById("telegramCount").textContent =
+            `${data.telegram || 0} marta ko'rilgan`;
+
+        document.getElementById("instagramCount").textContent =
+            `${data.instagram || 0} marta ko'rilgan`;
+
+        document.getElementById("youtubeCount").textContent =
+            `${data.youtube || 0} marta ko'rilgan`;
+
+        document.getElementById("tiktokCount").textContent =
+            `${data.tiktok || 0} marta ko'rilgan`;
+
+    } catch (e) {
+        console.log("Xato:", e);
+    }
+}
+
+async function countClick(platform) {
+    try {
+        await fetch(API_URL, {
+            method: "POST",
+            body: new URLSearchParams({
+                platform: platform
+            })
+        });
+
+        setTimeout(loadCounts, 500);
+
+    } catch (e) {
+        console.log("Xato:", e);
+    }
+}
+
+loadCounts();
+</script>
+
+</body>
+</html>
+
